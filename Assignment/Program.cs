@@ -52,7 +52,8 @@ namespace Assignment
 
         #endregion
 
-        #region MyRegion
+        #region Q04 - You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
+
 
         public static List<int> EvenNumbersInList(List<int> numbers)
         {
@@ -116,6 +117,18 @@ namespace Assignment
             //{
             //    Console.Write(num + " ");
             //}
+
+            #endregion
+
+            #region Q05 - implement a custom list called FixedSizeList<T> with a predetermined capacity.
+
+            //FixedList<int> fixedList = new FixedList<int>(3);
+
+            //fixedList.Add(10);
+            //fixedList.Add(20);
+            //fixedList.Add(30);
+
+            //Console.WriteLine(fixedList.Get(1));
 
             #endregion
 
