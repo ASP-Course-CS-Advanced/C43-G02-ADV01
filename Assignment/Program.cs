@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Assignment
 {
@@ -49,9 +50,28 @@ namespace Assignment
             }
         }
 
-            #endregion
+        #endregion
 
-            static void Main(string[] args)
+        #region MyRegion
+
+        public static List<int> EvenNumbersInList(List<int> numbers)
+        {
+            List<int> evenNumbers = new List<int>();
+
+            foreach (int num in numbers)
+            {
+                if (num % 2 == 0)
+                {
+                    evenNumbers.Add(num);
+                }
+            }
+
+            return evenNumbers;
+        }
+
+        #endregion
+
+        static void Main(string[] args)
         {
 
             #region Q01 - The Bubble Sort algorithm has a time complexity of O(n^2) in its worst and average cases
@@ -83,6 +103,18 @@ namespace Assignment
             //foreach (int num in arr)
             //{
             //    Console.Write(num+" ");
+            //}
+
+            #endregion
+
+            #region Q04 - You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
+
+            //List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //List<int> evenNumbers = EvenNumbersInList(numbers);
+
+            //foreach (int num in evenNumbers)
+            //{
+            //    Console.Write(num + " ");
             //}
 
             #endregion
