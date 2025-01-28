@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Assignment
@@ -72,6 +73,32 @@ namespace Assignment
 
         #endregion
 
+        #region Q06 - Given a string, find the first non-repeated character in it and return its index.If there is no such character, return -1.
+
+
+        public static int FirstNonRepeatedChar(string str)
+        {
+            Dictionary<char, int> charCount = new Dictionary<char, int>();
+
+            foreach (char c in str)
+            {
+                if (charCount.ContainsKey(c))
+                    charCount[c]++;
+                else
+                    charCount[c] = 1;
+            }
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (charCount[str[i]] == 1)
+                    return i;
+            }
+
+            return -1;
+        }
+
+        #endregion
+
         static void Main(string[] args)
         {
 
@@ -129,6 +156,15 @@ namespace Assignment
             //fixedList.Add(30);
 
             //Console.WriteLine(fixedList.Get(1));
+
+            #endregion
+
+            #region Q06 - Given a string, find the first non-repeated character in it and return its index.If there is no such character, return -1.
+
+            //string s = "swiss";
+            //int index = FirstNonRepeatedChar(s);
+
+            //Console.WriteLine($"first non-repeated character is: ({s[index]}), at index: {index}");
 
             #endregion
 
