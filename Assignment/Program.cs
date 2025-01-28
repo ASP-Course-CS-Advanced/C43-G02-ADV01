@@ -75,7 +75,6 @@ namespace Assignment
 
         #region Q06 - Given a string, find the first non-repeated character in it and return its index.If there is no such character, return -1.
 
-
         public static int FirstNonRepeatedChar(string str)
         {
             Dictionary<char, int> charCount = new Dictionary<char, int>();
