@@ -1,4 +1,6 @@
-﻿namespace Assignment
+﻿using System.Collections;
+
+namespace Assignment
 {
     internal class Program
     {
@@ -28,6 +30,25 @@
             }
         }
 
+        #endregion
+
+        #region Q03 - You are given an ArrayList containing a sequence of elements.
+
+        public static void ReverseArrayList(ArrayList list)
+        {
+            int left = 0;
+            int right = list.Count - 1;
+            while (left < right)
+            {
+                // Swap elements
+                object temp = list[left];
+                list[left] = list[right];
+                list[right] = temp;
+                left++;
+                right--;
+            }
+        }
+
             #endregion
 
             static void Main(string[] args)
@@ -51,6 +72,18 @@
 
             //Console.WriteLine(intRange.IsInRange(15));
             //Console.WriteLine(intRange.Length());
+
+            #endregion
+
+            #region Q03 - You are given an ArrayList containing a sequence of elements.
+
+            //ArrayList arr = new ArrayList { 1, 2, 3, 4, 5 };
+            //ReverseArrayList(arr);
+
+            //foreach (int num in arr)
+            //{
+            //    Console.Write(num+" ");
+            //}
 
             #endregion
 
