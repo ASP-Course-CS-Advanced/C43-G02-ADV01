@@ -45,6 +45,15 @@
 
             #endregion
 
+            #region Q02 - create a generic Range<T> class that represents a range of values from a minimum value to a maximum value.
+
+            //Range<int> intRange = new Range<int>(5, 10);
+
+            //Console.WriteLine(intRange.IsInRange(15));
+            //Console.WriteLine(intRange.Length());
+
+            #endregion
+
         }
     }
 }
