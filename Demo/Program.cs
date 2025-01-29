@@ -134,18 +134,123 @@
 
             #region Helper.Swap<Point>(ref p01, ref p02);
 
-            Point p01 = new Point(10, 20);
-            Point p02 = new Point(60, 40);
-            Console.WriteLine($"p01 = {p01}");// p01 = (10,20)
-            Console.WriteLine($"p02 = {p02}");// p02 = (60,40)
+            //Point p01 = new Point(10, 20);
+            //Point p02 = new Point(60, 40);
+            //Console.WriteLine($"p01 = {p01}");// p01 = (10,20)
+            //Console.WriteLine($"p02 = {p02}");// p02 = (60,40)
 
-            Helper.Swap/*<Point>*/(ref p01, ref p02);
-            Console.WriteLine("==== After Swap === ");
+            //Helper.Swap/*<Point>*/(ref p01, ref p02);
+            //Console.WriteLine("==== After Swap === ");
 
-            Console.WriteLine($"p01 = {p01}");// p01 = (60,40)
-            Console.WriteLine($"p02 = {p02}");// p02 = (10,20)
+            //Console.WriteLine($"p01 = {p01}");// p01 = (60,40)
+            //Console.WriteLine($"p02 = {p02}");// p02 = (10,20)
 
             #endregion
+
+            #endregion
+
+            #endregion
+
+            #region Part 02 Generics - LinearSearch Exmaple
+
+            #region NonGeneric LinearSearch  -  Helper.LinearSearch(int[] arr, int value)
+
+            //int[] arr = new int[] { 10, 5, 4, 7, 9, 8, 6 };
+            //int index = Helper.LinearSearch(arr, 8);
+
+            //Console.WriteLine(index);// 5 
+
+            #endregion
+
+            #region Generic LinearSearch  -  Helper<T>LinearSearch(T[] arr, T value)
+
+            #region Part01 - Solve Proplems.
+
+            #region Add new behavior to (==) operator to let it compare between two objects of struct Employee. 
+
+            //Employee emp01 = new Employee() { Id = 10, Name = new string("Eslam"), Salary = 8000 };
+            //Employee emp02 = new Employee() { Id = 10, Name = new string("Eslam"), Salary = 8000 };
+
+            //if (emp01 == emp02)
+            //    Console.WriteLine("Equals!");// Equals!
+            //else
+            //    Console.WriteLine("Not Equals!"); 
+
+            #endregion
+
+            #region Use Equals() method that struct Employee inherit it from ValueType class (ValueType inherit it from object and let it compare states of two objects not addresses) - instead of use == and make overload to it
+
+            //Employee emp01 = new Employee() { Id = 10, Name = new string("Eslam"), Salary = 8000 };
+            //Employee emp02 = new Employee() { Id = 10, Name = new string("Eslam"), Salary = 8000 };
+
+            //if (emp01.Equals(emp02))
+            //    Console.WriteLine("Equals!");// Equals!
+            //else
+            //    Console.WriteLine("Not Equals!");
+
+            #endregion
+
+            #region Use Equals() method that class Employee02 inherit it from object class that compare addresses of two objects but i override it inside Employee02 class to make it compare states of two objects.
+
+            //Employee02 emp01 = new Employee02() { Id = 10, Name = new string("Eslam"), Salary = 8000 };
+            //Employee02 emp02 = new Employee02() { Id = 10, Name = new string("Eslam"), Salary = 8000 };
+
+            //Console.WriteLine($"{emp01.GetHashCode()}");// 2120548586
+            //Console.WriteLine($"{emp02.GetHashCode()}");// 2120548586 
+
+            //// Have The Same HashCode - Because I override the GetHashCode() method inside "Employee02" clas s to make it generate the hashCode based on the state of object not the address
+            //// If the two objects has the same state [they will have the same hash code].
+
+            //if (emp01.Equals(emp02))
+            //    Console.WriteLine("Equals!");// Equals!
+            //else
+            //    Console.WriteLine("Not Equals!");
+
+            #endregion
+
+            #region Use == method that class Employee02 default implement it that compare Addresses of two objects.
+
+            //Employee02 emp01 = new Employee02() { Id = 10, Name = new string("Eslam"), Salary = 8000 };
+            //Employee02 emp02 = new Employee02() { Id = 10, Name = new string("Eslam"), Salary = 8000 };
+
+            //if (emp01 == emp02)
+            //    Console.WriteLine("Equals!");
+            //else
+            //    Console.WriteLine("Not Equals!");// Not Equals! [emp01 hold address of object and emp02 hold address of different object]
+
+            #endregion
+
+            #endregion
+
+            #region Part02 - Generic LinearSearch  -  Helper<T>LinearSearch(T[] arr, T value)
+
+            #region Example01 - Search Inside Array of Integers - Helper<int>.LinearSearch(arr, 8)
+
+            //int[] arr = new int[] { 10, 5, 4, 7, 9, 8, 6 };
+            //int index = Helper<int>.LinearSearch(arr, 8);
+
+            //Console.WriteLine(index);// 5  
+
+            #endregion
+
+            #region Example02 - Search Inside Array of Employee02 - Helper<Employee02>.LinearSearch(employees, new Employee02() { Id = 20, Name = "Ahmed", Salary = 4000 })
+
+            Employee02[] employees = new Employee02[]
+              {
+                new Employee02(){Id = 10,Name = "Eslam",Salary = 8000},
+                new Employee02(){Id = 20,Name = "Ahmed",Salary = 4000},
+                new Employee02(){Id = 30,Name = "Omnia",Salary = 6000}
+              };
+
+            Employee02 searchEmployee = new Employee02() { Id = 20, Name = "Ahmed", Salary = 4000 };
+            int index = Helper<Employee02>.LinearSearch(employees, searchEmployee);
+
+            Console.WriteLine(index);// 1
+
+            #endregion
+
+            #endregion
+
 
             #endregion
 
