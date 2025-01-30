@@ -235,22 +235,108 @@
 
             #region Example02 - Search Inside Array of Employee02 - Helper<Employee02>.LinearSearch(employees, new Employee02() { Id = 20, Name = "Ahmed", Salary = 4000 })
 
-            Employee02[] employees = new Employee02[]
-              {
-                new Employee02(){Id = 10,Name = "Eslam",Salary = 8000},
-                new Employee02(){Id = 20,Name = "Ahmed",Salary = 4000},
-                new Employee02(){Id = 30,Name = "Omnia",Salary = 6000}
-              };
+            //Employee02[] employees = new Employee02[]
+            //  {
+            //    new Employee02(){Id = 10,Name = "Eslam",Salary = 8000},
+            //    new Employee02(){Id = 20,Name = "Ahmed",Salary = 4000},
+            //    new Employee02(){Id = 30,Name = "Omnia",Salary = 6000}
+            //  };
 
-            Employee02 searchEmployee = new Employee02() { Id = 20, Name = "Ahmed", Salary = 4000 };
-            int index = Helper<Employee02>.LinearSearch(employees, searchEmployee);
+            //Employee02 searchEmployee = new Employee02() { Id = 20, Name = "Ahmed", Salary = 4000 };
+            //int index = Helper<Employee02>.LinearSearch(employees, searchEmployee);
 
-            Console.WriteLine(index);// 1
+            //Console.WriteLine(index);// 1
+
+            #endregion
+
+            #endregion
+
 
             #endregion
 
             #endregion
 
+            #region Part 03 Equals() and GetHashCode()
+
+            #region In Case That override Equals() &  not override GetHashCode().
+
+            //Employee02 emp01 = new Employee02() { Id = 10, Name = "Ahmed", Salary = 8000 };
+            //Employee02 emp02 = new Employee02() { Id = 10, Name = "Ahmed", Salary = 8000 };
+
+            //Console.WriteLine(emp01.GetHashCode());// 54267293
+            //Console.WriteLine(emp02.GetHashCode());// 18643596
+
+            //Console.WriteLine(emp01.Equals(emp02));//true
+
+            //HashSet<Employee02> employeeSet = new HashSet<Employee02>();
+            //employeeSet.Add(emp01);
+            //employeeSet.Add(emp02);
+
+            //foreach (Employee02 employee in employeeSet)
+            //{
+            //    Console.WriteLine(employee);// Id: 10, Name: Ahmed, Salary: 8000
+            //}                               // Id: 10, Name: Ahmed, Salary: 8000
+
+            #endregion
+
+            #region In Case That override Equals() & override GetHashCode().
+
+            //Employee02 emp01 = new Employee02() { Id = 10, Name = "Ahmed", Salary = 8000 };
+            //Employee02 emp02 = new Employee02() { Id = 10, Name = "Ahmed", Salary = 8000 };
+
+            //Console.WriteLine(emp01.GetHashCode());// 384590876
+            //Console.WriteLine(emp02.GetHashCode());// 384590876
+
+            //Console.WriteLine(emp01.Equals(emp02));//true
+
+            //HashSet<Employee02> employeeSet = new HashSet<Employee02>();
+            //employeeSet.Add(emp01);
+            //employeeSet.Add(emp02);
+
+            //foreach (Employee02 employee in employeeSet)
+            //{
+            //    Console.WriteLine(employee);// Id: 10, Name: Ahmed, Salary: 8000
+            //}                               
+
+            #endregion
+
+            #region Override GetHashCode() with implementation (return this.Id.GetHashCode() ^ this.Name?.GetHashCode() ?? default(int) ^ this.Salary.GetHashCode() ) -> Causing Collision
+
+            //Employee02 emp01 = new Employee02() { Id = 10, Name = "Ahmed", Salary = 8000 }; 
+            //Employee02 emp02 = new Employee02() { Id = 8000, Name = "Ahmed", Salary = 10 };
+
+            //Console.WriteLine(emp01.Id.GetHashCode());    // 10 
+            //Console.WriteLine(emp01.Name.GetHashCode());  // 1751769853 
+            //Console.WriteLine(emp01.Salary.GetHashCode());// 8000 
+
+            //Console.WriteLine(emp02.Id.GetHashCode());    // 8000 
+            //Console.WriteLine(emp02.Name.GetHashCode());  // 1751769853 
+            //Console.WriteLine(emp02.Salary.GetHashCode());// 10 
+
+            //Console.WriteLine(emp01.Id.GetHashCode() + emp01.Name.GetHashCode() + emp01.Salary.GetHashCode());// (10 + 1751769853 + 8000) = 1751777863
+            //Console.WriteLine(emp02.Id.GetHashCode() + emp02.Name.GetHashCode() + emp02.Salary.GetHashCode());// (8000 + 1751769853 + 10) = 1751777863
+
+            #endregion
+
+            #region Override GetHashCode() with Prime Number implementation | Not Cause Collision | Best Implementation
+
+            //Employee02 emp01 = new Employee02() { Id = 10, Name = "Ahmed", Salary = 8000 };
+            //Employee02 emp02 = new Employee02() { Id = 8000, Name = "Ahmed", Salary = 10 };
+
+            //Console.WriteLine(emp01.GetHashCode());// -669456994
+            //Console.WriteLine(emp02.GetHashCode());// -669839710
+
+            #endregion
+
+            #region Override GetHashCode() with HashCode.Combine() method | C#8.0 Feature.
+
+            //Employee02 emp01 = new Employee02() { Id = 10, Name = "Ahmed", Salary = 8000 };
+            //Employee02 emp02 = new Employee02() { Id = 8000, Name = "Ahmed", Salary = 10 };
+
+            //Console.WriteLine(emp01.Equals(emp02));// False [Based on State/Data]
+
+            //Console.WriteLine(emp01.GetHashCode());// 1891486132   [Based on State/Data]
+            //Console.WriteLine(emp02.GetHashCode());// -1684315059  [Based on State/Data]
 
             #endregion
 
