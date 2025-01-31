@@ -21,11 +21,36 @@ namespace Demo
         
         public override bool Equals(object? obj)
         {
-            Employee02? other = (Employee02?)obj;
-            if (other is null)
-                return false;// Because (this) object is exist,mean it contain data, so false mean (object contained data != null).
+
+            #region Implementation01 - Throw Exception if Casting Fail - Employee02? other = (Employee02?)obj
+            //Employee02? other = (Employee02?)obj;
+            //if (other is null)
+            //    return false;// Because (this) object is exist,mean it contain data, so false mean (object contained data != null).
+
+            //return (this.Id == other?.Id && this.Name == other.Name && this.Salary == other.Salary); 
+            #endregion
+
+            #region Implementation02 - Using "is" operator - Not throw Exception if casting fail- if(obj is Employee02 other)
+
+            //if(obj is Employee02 other) // "true" if "obj" refer to object of type "Employee02" or object of any type inherit from "Employee02" - And "other" will hold the address of this object                          
+            //{                           // "false" if "obj" refer to object of another type -  "other" will hold null.
+            //    return (this.Id == other?.Id && this.Name == other.Name && this.Salary == other.Salary);
+            //}
+
+            //return false;
+
+            #endregion
+
+            #region Implementation03 - Using "as" operator - Not thrown Exception if casting fail
+
+            Employee02? other = obj as Employee02;// if "obj" not refer to object from class "Employee02", other will hold null. 
+
+            if(other == null)
+                return false;
 
             return (this.Id == other?.Id && this.Name == other.Name && this.Salary == other.Salary);
+
+            #endregion
         }
 
         public override int GetHashCode()

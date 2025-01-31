@@ -342,6 +342,49 @@
 
             #endregion
 
+            #region Part 04 is and as Operators
+
+            #region Example01 - Handle Equals() method - prevent thrown exception if casting fail by using "is" operator - if cast fail null returned. 
+
+            //Employee02 employee02 = new Employee02() { Id = 10, Name = "Ahmed", Salary = 8000 };
+
+            //Console.WriteLine(employee02.Equals("Ahmed"));// False [Not throw Exception].  
+
+            #endregion
+
+            #region Example02 - Handle Equals() method - prevent thrown exception if casting fail by using "as" operator - if cast fail null returned. 
+
+            #region The Parameter of "t01.Equals(t02)" is object of type "Test" class that inherit from "Employee02".
+
+            //Test t01 = new Test() { Id = 10, Name = "Eslam", Salary = 8000 };
+            //Test t02 = new Test() { Id = 10, Name = "Eslam", Salary = 8000 };
+
+            //Console.WriteLine(t01.Equals(t02));// true 
+
+            #endregion
+
+            #region The Parameter of "emp01.Equals(emp02)" is object of type "Employee02" class.
+
+            //Employee02 emp01= new Test() { Id = 10, Name = "Eslam", Salary = 8000 };
+            //Employee02 emp02 = new Test() { Id = 10, Name = "Eslam", Salary = 8000 };
+
+            //Console.WriteLine(emp01.Equals("emp02"));// True 
+
+            #endregion
+
+            #region Not throw Exception if the parameter is not of type "Employee02" or of type class inherit from "Employee02".
+
+            //Employee02 employee = new Employee02() { Id = 10, Name = "Ahmed", Salary = 8000 };
+            //int num = 10;
+
+            //Console.WriteLine(employee.Equals(num));// False [Not Thrown Exception].
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
         }
     }
 }
