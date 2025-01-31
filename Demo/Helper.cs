@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal static class Helper<T> 
+    internal static class Helper<T> where T : IEquatable<T>
     {
 
         #region Part 01 Generics - SWAP Example

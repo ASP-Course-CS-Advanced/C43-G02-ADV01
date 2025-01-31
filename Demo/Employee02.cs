@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal class Employee02
+    internal class Employee02 : IEquatable<Employee02>
     {
 
         #region properties
-        
+
         public int Id { get; set; }
         public string? Name { get; set; }
         public decimal Salary { get; set; }
@@ -18,39 +18,51 @@ namespace Demo
         #endregion
 
         #region Methods
-        
-        public override bool Equals(object? obj)
+
+        #region I don't need This Method - Because "Employee02" Now Implement the Generic "IEquatable<T>" Which has method "Equals(T? other)" that take parameter of type generic, specify the type when implement the Interface.
+
+        //public override bool Equals(object? obj)
+        //{
+
+        //    #region Implementation01 - Throw Exception if Casting Fail - Employee02? other = (Employee02?)obj
+        //    //Employee02? other = (Employee02?)obj;
+        //    //if (other is null)
+        //    //    return false;// Because (this) object is exist,mean it contain data, so false mean (object contained data != null).
+
+        //    //return (this.Id == other?.Id && this.Name == other.Name && this.Salary == other.Salary); 
+        //    #endregion
+
+        //    #region Implementation02 - Using "is" operator - Not throw Exception if casting fail- if(obj is Employee02 other)
+
+        //    //if(obj is Employee02 other) // "true" if "obj" refer to object of type "Employee02" or object of any type inherit from "Employee02" - And "other" will hold the address of this object                          
+        //    //{                           // "false" if "obj" refer to object of another type -  "other" will hold null.
+        //    //    return (this.Id == other?.Id && this.Name == other.Name && this.Salary == other.Salary);
+        //    //}
+
+        //    //return false;
+
+        //    #endregion
+
+        //    #region Implementation03 - Using "as" operator - Not thrown Exception if casting fail
+
+        //    Employee02? other = obj as Employee02;// if "obj" not refer to object from class "Employee02", other will hold null. 
+
+        //    if (other == null)
+        //        return false;
+
+        //    return (this.Id == other?.Id && this.Name == other.Name && this.Salary == other.Salary);
+
+        //    #endregion
+        //}
+
+        #endregion
+
+        public bool Equals(Employee02? other) // Equals() of IEquatable Interface.
         {
-
-            #region Implementation01 - Throw Exception if Casting Fail - Employee02? other = (Employee02?)obj
-            //Employee02? other = (Employee02?)obj;
-            //if (other is null)
-            //    return false;// Because (this) object is exist,mean it contain data, so false mean (object contained data != null).
-
-            //return (this.Id == other?.Id && this.Name == other.Name && this.Salary == other.Salary); 
-            #endregion
-
-            #region Implementation02 - Using "is" operator - Not throw Exception if casting fail- if(obj is Employee02 other)
-
-            //if(obj is Employee02 other) // "true" if "obj" refer to object of type "Employee02" or object of any type inherit from "Employee02" - And "other" will hold the address of this object                          
-            //{                           // "false" if "obj" refer to object of another type -  "other" will hold null.
-            //    return (this.Id == other?.Id && this.Name == other.Name && this.Salary == other.Salary);
-            //}
-
-            //return false;
-
-            #endregion
-
-            #region Implementation03 - Using "as" operator - Not thrown Exception if casting fail
-
-            Employee02? other = obj as Employee02;// if "obj" not refer to object from class "Employee02", other will hold null. 
-
-            if(other == null)
+            if (other == null)
                 return false;
-
-            return (this.Id == other?.Id && this.Name == other.Name && this.Salary == other.Salary);
-
-            #endregion
+            else
+                return ( this.Id.Equals(other.Id) && (this.Name?.Equals(other.Name) ??other.Name == null?true:false) && this.Salary.Equals(other.Salary));
         }
 
         public override int GetHashCode()
@@ -95,7 +107,7 @@ namespace Demo
         public override string ToString()
         {
             return $"Id: {Id}, Name: {Name}, Salary: {Salary}";
-        } 
+        }
 
         #endregion
 

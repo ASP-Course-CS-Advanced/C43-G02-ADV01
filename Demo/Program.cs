@@ -1,4 +1,6 @@
-﻿namespace Demo
+﻿using System.Runtime.CompilerServices;
+
+namespace Demo
 {
     internal class Program
     {
@@ -382,6 +384,28 @@
             #endregion
 
             #endregion
+
+            #endregion
+
+            #region Part 05 IEqutable
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Ahmed", Salary = 8000},
+            //    new Employee02(){Id = 30, Name = "Khalid", Salary = 3500},
+            //    new Employee02(){Id = 80, Name = "Sameh", Salary = 10000},
+            //    new Employee02(){Id = 90, Name = "Hind", Salary = 5000},
+            //};
+
+            //int index = Helper<Employee02>.LinearSearch(employees, new Employee02() { Id = 80, Name = "Sameh", Salary = 10000 });
+
+            //if (index != -1)
+            //    Console.WriteLine($"This Employee \"{employees[index].Name}\" => {employees[index]}\nFounded at index {index}");
+            //else
+            //    Console.WriteLine("NotFound!");
+
+            //// This Employee "Sameh" => Id: 80, Name: Sameh, Salary: 10000
+            //// Founded at index 2
 
             #endregion
 
