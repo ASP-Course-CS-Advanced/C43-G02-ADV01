@@ -256,8 +256,6 @@ namespace Demo
 
             #endregion
 
-            #endregion
-
             #region Part 03 Equals() and GetHashCode()
 
             #region In Case That override Equals() &  not override GetHashCode().
@@ -409,6 +407,71 @@ namespace Demo
 
             #endregion
 
+            #endregion
+
+            #region Part 06 IEqualityComparer
+
+            #region Example01 - Search based on Name.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 20, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 30, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 40, Name = "Omnia", Salary = 9000},
+            //};
+
+            //IEqualityComparer<Employee02> equalityComparerName = new EmployeeEqualityComparerName();
+            //int index = Helper<Employee02>.LinearSearch(employees, new Employee02() { Name = "Khalid" }, equalityComparerName);
+
+            //if (index != -1)
+            //    Console.WriteLine($"Employee {employees[index].Name} => {employees[index]}\nFounded at index {index}");// Employee Khalid => Id: 20, Name: Khalid, Salary: 4000
+            //else                                                                                                            // Founded at index 1
+            //    Console.WriteLine("Not found!");
+
+            #endregion
+
+            #region Example02 - Search based on Salary.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 20, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 30, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 40, Name = "Omnia", Salary = 9000},
+            //};
+
+            //IEqualityComparer<Employee02> equalityComparerSalary = new EmployeeEqualityComparerSalary();
+            //int index = Helper<Employee02>.LinearSearch(employees, new Employee02() { Salary = 9000 }, equalityComparerSalary);
+
+            //if (index != -1)
+            //    Console.WriteLine($"Employee {employees[index].Name} => {employees[index]}\nFounded at index {index}");// Employee Omnia => Id: 40, Name: Omnia, Salary: 9000
+            //else                                                                                                              // Founded at index 3
+            //    Console.WriteLine("Not found!");
+
+            #endregion
+
+            #region Example03 - Search based on Id.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 20, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 30, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 40, Name = "Omnia", Salary = 9000},
+            //};
+
+            //IEqualityComparer<Employee02> equalityComparerId = new EmployeeEqualityComparerId();
+            //int index = Helper<Employee02>.LinearSearch(employees, new Employee02() { Id = 30 }, equalityComparerId);
+
+            //if (index != -1)
+            //    Console.WriteLine($"Employee {employees[index].Name} => {employees[index]}\nFounded at index {index}");// Employee Ahmed => Id: 30, Name: Ahmed, Salary: 5000
+            //else                                                                                                          //  Founded at index 2
+            //    Console.WriteLine("Not found!");
+
+            #endregion
+
+            #endregion
         }
     }
 }

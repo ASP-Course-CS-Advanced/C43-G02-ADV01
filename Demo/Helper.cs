@@ -10,7 +10,7 @@ namespace Demo
     {
 
         #region Part 01 Generics - SWAP Example
-        
+
         #region Non Generic Swap() - Abuse The Overload Concept
 
         //public static void Swap(ref int x, ref int y)
@@ -81,6 +81,8 @@ namespace Demo
 
         #region Generic LinearSearch  -  LinearSearch(T[] arr, T value)
 
+        #region 1st overload LinearSearch(T[] arr, T value) - use Equals() that defines inside the type T [Which compare equaliity basd on one full state].
+
         public static int LinearSearch(T[] arr, T value)
         {
             if (arr?.Length > 0 && value is not null)
@@ -93,6 +95,25 @@ namespace Demo
             }
             return -1;
         }
+
+        #endregion
+
+        #region 2nd overload LinearSearch(T[] arr, T value) - use Equals() that defines inside the type that the reference from Interface IEquallityComparer<T> refer to [Which compare equaliity basd on one factor not full state]. 
+
+        public static int LinearSearch(T[] arr, T value, IEqualityComparer<T> equalityComparer)
+        {
+            if (arr?.Length > 0 && value is not null)
+            {
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (equalityComparer.Equals(value,arr[i]))
+                        return i;
+                }
+            }
+            return -1;
+        }
+
+        #endregion
 
         #endregion
 
