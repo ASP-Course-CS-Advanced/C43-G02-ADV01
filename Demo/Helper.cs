@@ -98,7 +98,7 @@ namespace Demo
 
         #endregion
 
-        #region 2nd overload LinearSearch(T[] arr, T value) - use Equals() that defines inside the type that the reference from Interface IEquallityComparer<T> refer to [Which compare equaliity basd on one factor not full state]. 
+        #region 2nd overload LinearSearch(T[] arr, T value, IEqualityComparer<T> equalityComparer) - use Equals() that defines inside the type that the reference from Interface IEquallityComparer<T> refer to [Which compare equaliity basd on one factor not full state]. 
 
         public static int LinearSearch(T[] arr, T value, IEqualityComparer<T> equalityComparer)
         {
@@ -107,6 +107,23 @@ namespace Demo
                 for (int i = 0; i < arr.Length; i++)
                 {
                     if (equalityComparer.Equals(value,arr[i]))
+                        return i;
+                }
+            }
+            return -1;
+        }
+
+        #endregion
+
+        #region 3rd overload LinearSearch(T[] arr, T value, func<T,T,bool> equals) - use delegate to compare based on specific value only not full state.
+
+        public static int LinearSearch(T[] arr, T value, Func<T,T,bool> equals)
+        {
+            if (arr?.Length > 0 && value is not null)
+            {
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (equals(value, arr[i]))
                         return i;
                 }
             }

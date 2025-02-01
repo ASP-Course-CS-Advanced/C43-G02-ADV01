@@ -472,6 +472,49 @@ namespace Demo
             #endregion
 
             #endregion
+
+            #region Part 07 LinearSearch Using Delegate
+
+            #region Example01 - Using Anonymous Method -  Example for compare Name.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 20, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 30, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 40, Name = "Omnia", Salary = 9000},
+            //};
+
+            //int index = Helper<Employee02>.LinearSearch(employees, new Employee02() { Name = "Ahmed" }, delegate (Employee02 x, Employee02 y) { return x.Name == y.Name; });
+
+            //if (index != -1)
+            //    Console.WriteLine($"Employee {employees[index].Name} => {employees[index]}\nFounded at index {index}");// Employee Ahmed => Id: 30, Name: Ahmed, Salary: 5000
+            //else                                                                                                             //  Founded at index 2
+            //    Console.WriteLine("Not found!");
+
+            #endregion
+
+            #region Example02 - Using Lambda Expression - Example for Compare Id.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 20, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 30, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 40, Name = "Omnia", Salary = 9000},
+            //};
+
+            //int index = Helper<Employee02>.LinearSearch(employees, new Employee02() { Id = 40 }, (x, y) => x.Id == y.Id);
+
+            //if (index != -1)
+            //    Console.WriteLine($"Employee {employees[index].Name} => {employees[index]}\nFounded at index {index}");// Employee Omnia => Id: 40, Name: Omnia, Salary: 9000
+            //else                                                                                                             // Founded at index 3
+            //    Console.WriteLine("Not found!");
+
+            #endregion
+
+            #endregion
+
         }
     }
 }
