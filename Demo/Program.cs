@@ -515,6 +515,115 @@ namespace Demo
 
             #endregion
 
+            #region Part 08 Generics - BubbleSort Exmaple
+
+            #region Example 01 - NonGeneric BubbleSort 
+
+            //int[] nums = new int[] { 9, 4, 5, 6, 7, 2, 3, 1, 8 };
+            //Helper<int>.BubbleSort(nums);
+
+            //foreach (int num in nums)
+            //{
+            //    Console.Write(num + " ");// 1 2 3 4 5 6 7 8 9
+            //}
+
+            #endregion
+
+            #region Example 02 - Generic BubbleSort 
+
+            #region Using CompareTo(object? obj) of the NonGeneric interface "IComparable" - Cause Boxing,Unboxing & Casting with structs Types - Cause Casting with Class Types.
+
+            #region 01 - T is [int] struct that implement the "IComparable" interface and provide implementation for "CompareTo(object? obj)"[Boxing & Unboxing - Must Make Cast from object? to int] - So Helper<int> work.
+
+            //int[] nums = new int[] { 9, 4, 5, 6, 7, 2, 3, 1, 8 };
+            //Helper<int>.BubbleSort(nums);
+
+            //foreach (int num in nums)
+            //{
+            //    Console.Write(num + " ");// 1 2 3 4 5 6 7 8 9
+            //} 
+
+            #endregion
+
+            #region 02 - T is [Employee02] Class that not-implement the "IComparable" interface and not provide implementation for "CompareTo(object? obj)"[ Must Make Cast from object? to Employee?] - So Helper<Employee02> not work.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 20, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 30, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 40, Name = "Omnia", Salary = 9000},
+            //};
+
+            //Helper<Employee02>.BubbleSort(employees);// Employee02 doesn't implement the Icomparable interface.
+
+            #endregion
+
+            #region 02 - T is [Employee02] Class that implement the "IComparable" interface and provide implementation for CompareTo(object? obj)[ Must Make Cast from object? to Employee?] - So Helper<Employee02> will work.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 20, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 30, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 40, Name = "Omnia", Salary = 9000},
+            //};
+
+            //Helper<Employee02>.BubbleSort(employees);
+
+            //foreach (Employee02 employee in employees)
+            //{
+            //    Console.WriteLine(employee);// Id: 20, Name: Khalid, Salary: 4000
+            //}                               // Id: 30, Name: Ahmed, Salary: 5000
+            //                                // Id: 10, Name: Eslam, Salary: 8000
+            //                                // Id: 40, Name: Omnia, Salary: 9000 
+
+            #endregion 
+
+            #endregion
+
+            #region Using CompareTo(T? other) of the Generic interface "IComparable<T>" [not cause anyThing].
+
+            #region 01 - T is [int] struct that implement the "IComparable<T>" "IComparable<int>" interface and provide implementation for "CompareTo(int? other)" - So Helper<int> work.
+
+            //int[] nums = new int[] { 9, 4, 5, 6, 7, 2, 3, 1, 8 };
+            //Helper<int>.BubbleSort(nums);
+
+            //foreach (int num in nums)
+            //{
+            //    Console.Write(num + " ");// 1 2 3 4 5 6 7 8 9
+            //}
+
+            #endregion
+
+            #region 02 - T is [Employee02] Class that implement the "IComparable<T>" "IComparable<Employee02>" interface and provide implementation for CompareTo(Employee02? other) - So Helper<Employee02> will work.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 20, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 30, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 40, Name = "Omnia", Salary = 9000},
+            //};
+
+            //Helper<Employee02>.BubbleSort(employees);
+
+            //foreach (Employee02 employee in employees)
+            //{
+            //    Console.WriteLine(employee);// Id: 20, Name: Khalid, Salary: 4000
+            //}                               // Id: 30, Name: Ahmed, Salary: 5000
+            //                                // Id: 10, Name: Eslam, Salary: 8000
+            //                                // Id: 40, Name: Omnia, Salary: 9000 
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+
+            #endregion
+
         }
     }
 }

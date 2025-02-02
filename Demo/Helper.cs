@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal static class Helper<T> where T : IEquatable<T>
+    internal static class Helper<T> where T : IEquatable<T>/*,IComparable*/, IComparable<T>
+        // T must be type that implement the IEquatable<T> [Generic] and IComparable[NonGeneric] interfacs.
     {
 
         #region Part 01 Generics - SWAP Example
@@ -134,6 +135,45 @@ namespace Demo
 
         #endregion
 
+        #endregion
+
+        #region Part 08 Generics - BubbleSort Exmaple
+
+        #region Example 01 - NonGeneric BubbleSort - BubbleSort(int[] arr).
+
+        //public static void BubbleSort(int[] arr)
+        //{
+        //    if (arr is null || arr.Length <= 0)
+        //        return;
+        //    for(int i = 0; i < arr.Length; i++)
+        //    {
+        //        for(int j = 0; j < arr.Length - 1 - i; j++)
+        //        {
+        //            if (arr[j] > arr[j + 1])
+        //                Swap(ref arr[j], ref arr[j + 1]);
+        //        }
+        //    }
+        //}
+
+        #endregion
+
+        #region Example 02 - Generic BubbleSort - BubbleSort(T[] arr).
+
+        public static void BubbleSort(T[] arr)
+        {
+            if (arr is null || arr.Length <= 0)
+                return;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr.Length - 1 - i; j++)
+                {
+                    if (arr[j].CompareTo( arr[j + 1]) == 1)// mean that if arr[j] > arr[j+1] => make swap [Sorting Asc].
+                        Swap(ref arr[j], ref arr[j + 1]);
+                }
+            }
+        }
+
+        #endregion
 
         #endregion
 

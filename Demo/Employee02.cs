@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal class Employee02 : IEquatable<Employee02>
+    internal class Employee02 : IEquatable<Employee02>/*, IComparable*/, IComparable<Employee02>
     {
 
         #region properties
@@ -57,12 +58,49 @@ namespace Demo
 
         #endregion
 
+        #region CompareTo of the NonGeneric interface IComparable
+
+        //public int CompareTo(object? obj)// Method of the NonGeneric interface "IComparable".
+        //{
+        //    Employee02? other = obj as Employee02;// Because we implement the "Icomparable" interface which is the nonGeneric version which depend on the "objec?"
+        //                                          //  not implement the "Icomparable<T>" that is Generic version depend on the class Type that implement the interface
+        //    if (other is null)
+        //        return 1;// mean this > other.
+
+        //    if (this.Salary > other.Salary)
+        //        return 1;
+        //    else if (this.Salary < other.Salary)
+        //        return -1;
+        //    else
+        //        return 0;
+        //} 
+
+        #endregion
+
+        #region CompareTo of the Generic interface IComparable<Employee>.
+
+        public int CompareTo(Employee02? other)
+        {
+            if (other is null)
+                return 1;
+            if (this.Salary > other.Salary)
+                return 1;
+            else if (this.Salary < other.Salary)
+                return -1;
+            else
+                return 0;
+        }
+
+        #endregion
+
+        #region object class Methods
+        
         public bool Equals(Employee02? other) // Equals() of IEquatable Interface.
         {
             if (other == null)
                 return false;
             else
-                return ( this.Id.Equals(other.Id) && (this.Name?.Equals(other.Name) ??other.Name == null?true:false) && this.Salary.Equals(other.Salary));
+                return (this.Id.Equals(other.Id) && (this.Name?.Equals(other.Name) ?? other.Name == null ? true : false) && this.Salary.Equals(other.Salary));
         }
 
         public override int GetHashCode()
@@ -107,7 +145,9 @@ namespace Demo
         public override string ToString()
         {
             return $"Id: {Id}, Name: {Name}, Salary: {Salary}";
-        }
+        } 
+
+        #endregion
 
         #endregion
 
