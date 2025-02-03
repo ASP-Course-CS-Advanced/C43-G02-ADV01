@@ -107,9 +107,9 @@ namespace Assignment
             //} 
 
             #endregion
-           
+
             #region Q04 - You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
-            
+
             //List<int> ints =/* new List<int>() */[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
             //List<int> evenList = EvenList(ints);
 
@@ -117,12 +117,12 @@ namespace Assignment
             //{
             //    Console.Write(item + " ");
             //} 
-            
+
             #endregion
 
             #region Q05 - implement a custom list called FixedSizeList<T> with a predetermined capacity.
 
-            //FixedList<int> fixedList = new FixedList<int>(3);
+            //FixedSizeList<int> fixedList = new FixedSizeList<int>(3);
 
             //fixedList.Add(10);
             //fixedList.Add(20);
@@ -140,7 +140,6 @@ namespace Assignment
             //Console.WriteLine($"first non-repeated character is: ({s[index]}), at index: {index}");
 
             #endregion
-
 
         }
     }
