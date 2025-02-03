@@ -19,7 +19,7 @@ namespace Assignment
             while (left < right)
             {
                 // Swap elements
-                object temp = arrayList[left];
+                object? temp = arrayList[left];
                 arrayList[left] = arrayList[right];
                 arrayList[right] = temp;
                 left++;
