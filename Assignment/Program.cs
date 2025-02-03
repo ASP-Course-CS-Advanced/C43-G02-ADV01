@@ -3,28 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics.Metrics;
+using System.Xml.Linq;
 
 namespace Assignment
 {
     internal class Program
     {
 
-        #region Q03 - You are given an ArrayList containing a sequence of elements.
-
-        public static void ReverseArrayList(ArrayList list)
+        #region Q03 - You are given an ArrayList containing a sequence of elements
+        
+        public static void ReverseArrayList(ArrayList arrayList)
         {
             int left = 0;
-            int right = list.Count - 1;
+            int right = arrayList.Count - 1;
             while (left < right)
             {
                 // Swap elements
-                object temp = list[left];
-                list[left] = list[right];
-                list[right] = temp;
+                object temp = arrayList[left];
+                arrayList[left] = arrayList[right];
+                arrayList[right] = temp;
                 left++;
                 right--;
             }
-        }
+        } 
 
         #endregion
 
@@ -89,7 +90,7 @@ namespace Assignment
             #endregion
 
             #region Q02 - create a generic Range<T> class that represents a range of values from a minimum value to a maximum value
-            
+
             //Range02<int> range02 = new Range02<int>(10, 20);
 
             //if (range02.IsInRange(15))
@@ -101,16 +102,17 @@ namespace Assignment
 
             #endregion
 
-            #region Q03 - You are given an ArrayList containing a sequence of elements.
+            #region Q03 - You are given an ArrayList containing a sequence of elements
 
-            //ArrayList arr = new ArrayList { 1, 2, 3, 4, 5 };
-            //ReverseArrayList(arr);
+            //ArrayList arrayList = new ArrayList() { 1, 2, 3, 4, 5, 6, 7 };
 
-            //foreach (int num in arr)
+            //ReverseArrayList(arrayList);
+
+            //foreach (var item in arrayList)
             //{
-            //    Console.Write(num+" ");
-            //}
-
+            //    Console.Write(item + " ");
+            //} 
+            
             #endregion
 
             #region Q04 - You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
@@ -145,6 +147,7 @@ namespace Assignment
             //Console.WriteLine($"first non-repeated character is: ({s[index]}), at index: {index}");
 
             #endregion
+
 
 
         }
