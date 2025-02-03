@@ -11,7 +11,7 @@ namespace Assignment
     {
 
         #region Q03 - You are given an ArrayList containing a sequence of elements
-        
+
         public static void ReverseArrayList(ArrayList arrayList)
         {
             int left = 0;
@@ -25,30 +25,23 @@ namespace Assignment
                 left++;
                 right--;
             }
-        } 
-
-        #endregion
-
-        #region Q04 - You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
-
-
-        public static List<int> EvenNumbersInList(List<int> numbers)
-        {
-            List<int> evenNumbers = new List<int>();
-
-            foreach (int num in numbers)
-            {
-                if (num % 2 == 0)
-                {
-                    evenNumbers.Add(num);
-                }
-            }
-
-            return evenNumbers;
         }
 
         #endregion
 
+        #region Q04 - You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
+        public static List<int> EvenList(List<int> intList)
+        {
+            List<int> evenList = new List<int>();
+            for (int i = 0; i < intList.Count; i++)
+            {
+                if (intList[i] % 2 == 0)
+                    evenList.Add(intList[i]);
+            }
+            return evenList;
+        } 
+        #endregion
+        
         #region Q06 - Given a string, find the first non-repeated character in it and return its index.If there is no such character, return -1.
 
         public static int FirstNonRepeatedChar(string str)
@@ -112,19 +105,19 @@ namespace Assignment
             //{
             //    Console.Write(item + " ");
             //} 
-            
+
             #endregion
-
+           
             #region Q04 - You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
+            
+            //List<int> ints =/* new List<int>() */[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            //List<int> evenList = EvenList(ints);
 
-            //List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            //List<int> evenNumbers = EvenNumbersInList(numbers);
-
-            //foreach (int num in evenNumbers)
+            //foreach (var item in evenList)
             //{
-            //    Console.Write(num + " ");
-            //}
-
+            //    Console.Write(item + " ");
+            //} 
+            
             #endregion
 
             #region Q05 - implement a custom list called FixedSizeList<T> with a predetermined capacity.
@@ -147,7 +140,6 @@ namespace Assignment
             //Console.WriteLine($"first non-repeated character is: ({s[index]}), at index: {index}");
 
             #endregion
-
 
 
         }
