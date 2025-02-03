@@ -88,12 +88,16 @@ namespace Assignment
 
             #endregion
 
-            #region Q02 - create a generic Range<T> class that represents a range of values from a minimum value to a maximum value.
+            #region Q02 - create a generic Range<T> class that represents a range of values from a minimum value to a maximum value
+            
+            //Range02<int> range02 = new Range02<int>(10, 20);
 
-            //Range<int> intRange = new Range<int>(5, 10);
+            //if (range02.IsInRange(15))
+            //    Console.WriteLine($"In Range.");
+            //else
+            //    Console.WriteLine("Not In Range.");
 
-            //Console.WriteLine(intRange.IsInRange(15));
-            //Console.WriteLine(intRange.Length());
+            //Console.WriteLine(range02.Length());// 10 
 
             #endregion
 
@@ -141,6 +145,7 @@ namespace Assignment
             //Console.WriteLine($"first non-repeated character is: ({s[index]}), at index: {index}");
 
             #endregion
+
 
         }
     }
