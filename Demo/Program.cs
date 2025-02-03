@@ -7,6 +7,8 @@ namespace Demo
         static void Main(string[] args)
         {
 
+            #region Example01 - SWAP()
+
             #region Part 01 Generics - SWAP Example
 
             #region 01.1 - Non Generic Swap() - Abuse The Overload Concept
@@ -152,6 +154,10 @@ namespace Demo
             #endregion
 
             #endregion
+
+            #endregion
+
+            #region Example02 - LinearSearch()
 
             #region Part 02 Generics - LinearSearch Exmaple
 
@@ -515,6 +521,10 @@ namespace Demo
 
             #endregion
 
+            #endregion
+
+            #region Example03 - BubbleSort()
+
             #region Part 08 Generics - BubbleSort Exmaple
 
             #region Example 01 - NonGeneric BubbleSort 
@@ -578,7 +588,7 @@ namespace Demo
             //                                // Id: 10, Name: Eslam, Salary: 8000
             //                                // Id: 40, Name: Omnia, Salary: 9000 
 
-            #endregion 
+            #endregion
 
             #endregion
 
@@ -621,6 +631,121 @@ namespace Demo
 
             #endregion
 
+
+            #endregion
+
+            #region Part 09 BubbleSort Using IComparer
+
+            #region Example01 - Sort Based On Name Asc.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 10, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 20, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 30, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 40, Name = "Omnia", Salary = 9000},
+            //};
+
+            //Helper<Employee02>.BubbleSort(employees, new EmployeeComparerName());
+
+            //foreach (Employee02 emp in employees)
+            //{
+            //    Console.WriteLine(emp);// Id: 30, Name: Ahmed, Salary: 5000
+            //}                          // Id: 10, Name: Eslam, Salary: 8000
+            //                           // Id: 20, Name: Khalid, Salary: 4000
+            //                           // Id: 40, Name: Omnia, Salary: 9000
+
+            #endregion
+
+            #region Example 02 - Sort Based On Id Asc
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 50, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 40, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 100, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 10, Name = "Omnia", Salary = 9000},
+            //};
+
+            //Helper<Employee02>.BubbleSort(employees, new EmployeeComparerId());
+
+            //foreach (Employee02 emp in employees)
+            //{
+            //    Console.WriteLine(emp);// Id: 10, Name: Omnia, Salary: 9000
+            //}                          // Id: 40, Name: Khalid, Salary: 4000
+            //                           // Id: 50, Name: Eslam, Salary: 8000
+            //                           // Id: 100, Name: Ahmed, Salary: 5000
+
+            #endregion
+
+            #region Example 03 - Sort Based On Salary Asc
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 50, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 40, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 100, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 10, Name = "Omnia", Salary = 9000},
+            //};
+
+            //Helper<Employee02>.BubbleSort(employees, new EmployeeComparerSalary());
+
+            //foreach (Employee02 emp in employees)
+            //{
+            //    Console.WriteLine(emp);// Id: 40, Name: Khalid, Salary: 4000
+            //}                          // Id: 100, Name: Ahmed, Salary: 5000
+            //                           // Id: 50, Name: Eslam, Salary: 8000
+            //                           // Id: 10, Name: Omnia, Salary: 9000
+
+            #endregion
+
+            #endregion
+
+            #region Part 10 BubbleSort Using Delegate
+
+            #region Example01 - Using Anonymous Method - Example for Sort Based on Id Desc.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 50, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 40, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 100, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 10, Name = "Omnia", Salary = 9000},
+            //};
+
+            //Helper<Employee02>.BubbleSort(employees, delegate (Employee02 x, Employee02 y) { return x.Id.CompareTo(y.Id) == -1; });
+
+            //foreach (Employee02 employee in employees)
+            //{
+            //    Console.WriteLine(employee);// Id: 100, Name: Ahmed, Salary: 5000
+            //}                               // Id: 50, Name: Eslam, Salary: 8000
+            //                                // Id: 40, Name: Khalid, Salary: 4000
+            //                                // Id: 10, Name: Omnia, Salary: 9000 
+
+            #endregion
+
+            #region Example01 - Using Anonymous Method - Example for Sort Based on Name Asc.
+
+            //Employee02[] employees = new Employee02[]
+            //{
+            //    new Employee02(){Id = 50, Name = "Eslam", Salary = 8000},
+            //    new Employee02(){Id = 40, Name = "Khalid", Salary = 4000},
+            //    new Employee02(){Id = 100, Name = "Ahmed", Salary = 5000},
+            //    new Employee02(){Id = 10, Name = "Omnia", Salary = 9000},
+            //};
+
+            //Helper<Employee02>.BubbleSort(employees, (x, y) => x.Name?.CompareTo(y.Name) == 1);
+
+            //foreach (Employee02 employee in employees)
+            //{
+            //    Console.WriteLine(employee);// Id: 100, Name: Ahmed, Salary: 5000
+            //}                               // Id: 50, Name: Eslam, Salary: 8000
+            //                                // Id: 40, Name: Khalid, Salary: 4000
+            //                                // Id: 10, Name: Omnia, Salary: 9000 
+
+            #endregion
+
+            #endregion
 
             #endregion
 

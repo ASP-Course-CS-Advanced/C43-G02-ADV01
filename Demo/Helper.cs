@@ -107,7 +107,7 @@ namespace Demo
             {
                 for (int i = 0; i < arr.Length; i++)
                 {
-                    if (equalityComparer.Equals(value,arr[i]))
+                    if (equalityComparer.Equals(value, arr[i]))
                         return i;
                 }
             }
@@ -118,7 +118,7 @@ namespace Demo
 
         #region 3rd overload LinearSearch(T[] arr, T value, func<T,T,bool> equals) - use delegate to compare based on specific value only not full state.
 
-        public static int LinearSearch(T[] arr, T value, Func<T,T,bool> equals)
+        public static int LinearSearch(T[] arr, T value, Func<T, T, bool> equals)
         {
             if (arr?.Length > 0 && value is not null)
             {
@@ -159,6 +159,8 @@ namespace Demo
 
         #region Example 02 - Generic BubbleSort - BubbleSort(T[] arr).
 
+        #region 1st overload BubbleSort(T[] arr) - use CompareTo that defines inside the Type T .
+
         public static void BubbleSort(T[] arr)
         {
             if (arr is null || arr.Length <= 0)
@@ -167,11 +169,49 @@ namespace Demo
             {
                 for (int j = 0; j < arr.Length - 1 - i; j++)
                 {
-                    if (arr[j].CompareTo( arr[j + 1]) == 1)// mean that if arr[j] > arr[j+1] => make swap [Sorting Asc].
+                    if (arr[j].CompareTo(arr[j + 1]) == 1)// mean that if arr[j] > arr[j+1] => make swap [Sorting Asc].
                         Swap(ref arr[j], ref arr[j + 1]);
                 }
             }
         }
+
+        #endregion
+
+        #region 2nd overload BubbleSort(T[] arr, IComparer<T> comparer) - use Compare() that defines inside the Type that the reference from interface IComparer<T> refer to.
+
+        public static void BubbleSort(T[] arr, IComparer<T> comparer)
+        {
+            if (arr is null || arr.Length <= 0)
+                return;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr.Length - 1 - i; j++)
+                {
+                    if (comparer.Compare(arr[j], arr[j + 1]) == 1)
+                        Swap(ref arr[j], ref arr[j + 1]);
+                }
+            }
+        }
+
+        #endregion
+
+        #region 3rd overload BubbleSort(T[] arr, Func<T,T,bool> compare) - use delegate to compare.
+
+        public static void BubbleSort(T[] arr, Func<T,T,bool> compare)
+        {
+            if (arr is null || arr.Length <= 0)
+                return;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr.Length - 1 - i; j++)
+                {
+                    if (compare(arr[j], arr[j + 1]))
+                        Swap(ref arr[j], ref arr[j + 1]);
+                }
+            }
+        }
+
+        #endregion
 
         #endregion
 
